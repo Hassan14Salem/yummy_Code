@@ -1,0 +1,57 @@
+/* You can add global styles to this file, and also import other style files */
+
+body
+{
+    background-color: black;
+    color:white;
+}
+
+.loading
+{
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background-color: black;
+    z-index: 11;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.layer
+{
+    position: absolute;
+    top:150%;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background-color:#E3DAD0;
+    color: #260000;
+    transition: 1s all;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.items
+{
+    position: relative !important;
+    overflow: hidden;
+
+}
+.items:hover .layer{
+    top:0;
+}
+a
+{
+    text-decoration: none;
+    color: white;
+}
+a:hover
+{
+    text-decoration: none;
+    color: white;
+}
+.load{
+    font-size: 100px;
+}

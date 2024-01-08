@@ -1,0 +1,71 @@
+<section class="p-5 d-flex justify-content-center align-items-center vh-100 bg-dark text-center">
+    <div class="container p-5 ">
+        <div class="alert alert-danger" *ngIf="registerError">
+            {{registerError}}
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="uInfo">
+                    <form [formGroup]="register" (ngSubmit)="registSubmit(register)">
+                        <div class="row">
+                            <div class="col-md-6 mb-1">
+                                <input formControlName="first_name" type="text" class="form-control" placeholder="First Name">
+                                <div class="alert alert-danger error" *ngIf="register.get('first_name')?.errors && register.get('first_name')?.touched">
+                                  
+                                    <p  *ngIf="register.get('first_name')?.getError('required')">this input is required </p>
+                                    <p *ngIf="register.get('first_name')?.getError('maxlength')"> Sorry Maximum Length is 10</p>
+                                    <p *ngIf="register.get('first_name')?.getError('minlength')">Sorry Minimum Length is 3</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6 ">
+                                <input formControlName="last_name" type="text" class="form-control" placeholder="Last Name">
+                                <div class="alert alert-danger"  *ngIf="register.get('last_name')?.errors && register.get('last_name')?.touched">
+                                    <p *ngIf="register.get('last_name')?.getError('required')">required</p>
+                                    <p *ngIf="register.get('last_name')?.getError('maxlength')">Sorry Maximum Length is 10</p>
+                                    <p *ngIf="register.get('last_name')?.getError('minlength')">Sorry Minimum Length is 3</p>
+                            
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row g-3 mt-2">
+                            <div class="col-md-12">
+                                <div >
+                                    <input formControlName="email" type="email" class="form-control" placeholder="Email">
+<div class="alert alert-danger" *ngIf="register.get('email')?.errors && register.get('email')?.touched">
+    <p *ngIf="register.get('email')?.getError('required')">required</p>
+    <p *ngIf="register.get('email')?.getError('email')">Please Enter a Valid Email!</p>
+</div>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div >
+                                    <input formControlName="password" type="password" class="form-control" placeholder="Password">
+                                    <div class="alert alert-danger" *ngIf="register.get('password')?.errors && register.get('password')?.touched">
+                                        <p *ngIf="register.get('password')?.getError('required')">required</p>
+                                        <p *ngIf="register.get('password')?.getError('pattern')">Please Enter a Strong Password!
+                                             at least 8 charachter and 4 numbers
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div >
+                                    <input formControlName="age" type="number" class="form-control" placeholder="Age">
+                                    <div class="alert alert-danger" *ngIf="register.get('age')?.errors && register.get('age')?.touched">
+                                        <p *ngIf="register.get('age')?.getError('required')">required</p>
+                                        <p *ngIf="register.get('age')?.getError('max')">Sorry You Are Too Old!</p>
+                                        <p *ngIf="register.get('age')?.getError('min')">Sorry You Are Too Young</p>
+                                    </div>
+                                </div>
+                            </div>
+                           
+
+                            
+                        </div>
+                    <button [disabled]="register.invalid"  type="submit" class="btn btn-primary mt-5">Create Account</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,23 @@
+<section class="text-center p-5">
+    <div class="loading v-100" *ngIf="loadingFlag">
+        <i class="fa-solid fa-spinner fa-spin-pulse text-white load"></i>
+
+    </div>
+    <div class="container">
+        <div class="row g-3">
+            <div class="col-lg-3" *ngFor="let meal of categoryMeals">
+                <a [routerLink]="['/menu', meal.strCategory]">
+                    <div class="items">
+                        <div class="layer d-block">
+                            <div>
+                                <h2 class="text-center">{{meal.strCategory}}</h2>
+                            </div>
+                            <p>{{meal.strCategoryDescription}}</p>
+                        </div>
+                        <img [src]="meal.strCategoryThumb" class="w-100" alt="Category">
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>

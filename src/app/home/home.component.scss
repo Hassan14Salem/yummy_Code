@@ -1,0 +1,18 @@
+.layer
+{
+    position: absolute;
+    top:150%;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background-color:#E3DAD0;
+    color: #260000;
+    transition: 1s all;
+}
+.items
+{
+    overflow: hidden;
+}
+.items:hover .layer{
+    top:0;
+}

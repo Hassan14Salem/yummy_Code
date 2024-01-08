@@ -1,0 +1,48 @@
+<section class="p-5">
+
+    <div class="container">
+     
+        
+        <div class="row">
+            <div class="col-md-6">
+                <input type="text" class="form-control" [(ngModel)]="searchByName">
+            </div>
+            <div class="col-md-6">
+                <input type="text" class="form-control letter" (keyup)="firstLetter()" [(ngModel)]="searchByLetter">
+            </div>
+        </div>
+    </div>
+</section>
+<section>
+    <div class="container" *ngIf="searchByName ">
+        <div class="row g-3">
+            <div class="col-lg-3" *ngFor="let meal of sNameResult|onTimeSearch:searchByName">
+                <a [routerLink]="['/mealdetails',meal.idMeal]">
+                    <div class="items" >
+                        <div class="layer">
+                            <h2>{{meal.strMeal}}</h2>
+                        </div>
+                        <img [src]="meal.strMealThumb" class="img-fluid" alt="meals images">
+                    </div>
+                </a>
+            </div>
+           
+        </div>
+       
+    </div>
+    <div class="container" *ngIf="searchByLetter ">
+        <div class="row g-3">
+            <div class="col-lg-3" *ngFor="let meal of sLetterResult|onTimeSearch:searchByLetter  ">
+                <a [routerLink]="['/mealdetails',meal.idMeal]">
+                  <div class="items" >
+                      <div class="layer">
+                          <h2>{{meal.strMeal}}</h2>
+                      </div>
+                      <img [src]="meal.strMealThumb" class="img-fluid" alt="meals images">
+                  </div>
+                </a>
+              </div>
+        </div>
+    </div>
+
+</section>

@@ -1,0 +1,19 @@
+<section class="p-5 text-center">
+  <div class="loading v-100" *ngIf="loadingFlag">
+    <i class="fa-solid fa-spinner fa-spin-pulse text-white load"></i>
+
+</div>
+<div class="container">
+    <div class="row g-3">
+        <div class="col-lg-3" *ngFor="let meal of iMeals |slice:0:20">
+          <a [routerLink]="['/ingredMenu',meal.strIngredient]">
+            <div class="items">
+                <i class="fa-solid fa-bowl-food"></i>
+                <h2>{{meal.strIngredient}}</h2>
+                <p>{{meal.strDescription |pHandle}}</p>
+            </div>
+          </a>
+        </div>
+    </div>
+</div>
+</section>

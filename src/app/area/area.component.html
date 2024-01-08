@@ -1,0 +1,20 @@
+<section class="p-5 text-center">
+    <div class="loading v-100" *ngIf="loadingFlag">
+        <i class="fa-solid fa-spinner fa-spin-pulse text-white load"></i>
+
+    </div>
+    <div class="container">
+        <div class="row g-3">
+            <div class="col-lg-3" *ngFor="let meal of areaMeals">
+               <a [routerLink]="['/areamenu',meal.strArea]">
+                <div class="items">
+                    <i class="p-3 fa-solid fa-city  "></i>
+                        <h2>{{meal.strArea}}</h2>
+                
+    
+                   </div>
+               </a>
+            </div>
+        </div>
+    </div>
+ 
